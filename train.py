@@ -51,7 +51,7 @@ if __name__ == "__main__":
             "Random_Forest__min_samples_split": list(range(20, 41, 10))
         }
 
-        model = GridSearchCV(pipe, params_grid, n_jobs=-1, verbose=3, cv=9, scoring="r2")
+        model = GridSearchCV(pipe, params_grid, n_jobs=-1, verbose=3, cv=3, scoring="r2")
         model.fit(X_train, y_train)
 
         mlflow.log_metric("Train Score", model.score(X_train, y_train))
